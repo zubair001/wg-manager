@@ -1,0 +1,13 @@
+services:
+  frontend:
+    build: .
+    container_name: wg-manager-app
+    restart: always
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - /.env
+    command: npm run dev -- --host
